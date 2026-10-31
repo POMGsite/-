@@ -1,0 +1,29 @@
+{
+  "name": "pomg-site",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Site institucional do Partido Operalista de Minas Gerais (P.O.M.G.)",
+  "type": "module",
+  "engines": {
+    "node": ">=22.5"
+  },
+  "scripts": {
+    "start": "NODE_ENV=production node --no-warnings --import tsx src/server/index.ts",
+    "dev": "node --no-warnings --import tsx --watch src/server/index.ts",
+    "create-admin": "node --no-warnings --import tsx src/server/cli.ts create-admin",
+    "typecheck": "tsc --noEmit",
+    "test": "node --no-warnings --import tsx --test tests/*.test.ts",
+    "export": "node --no-warnings --import tsx src/server/export.ts"
+  },
+  "dependencies": {
+    "react": "^19.2.0",
+    "react-dom": "^19.2.0",
+    "tsx": "^4.23.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.0.0",
+    "@types/react": "^19.0.0",
+    "@types/react-dom": "^19.0.0",
+    "typescript": "^6.0.0"
+  }
+}

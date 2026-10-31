@@ -1,0 +1,21 @@
+# Blueprint do Render (https://render.com): "New → Blueprint" apontando para o repositório.
+# O disco persistente exige um plano pago; sem ele, banco e uploads somem a cada reinício.
+services:
+  - type: web
+    name: pomg-site
+    runtime: docker
+    plan: starter
+    healthCheckPath: /healthz
+    disk:
+      name: pomg-dados
+      mountPath: /data
+      sizeGB: 1
+    envVars:
+      - key: SITE_URL
+        sync: false        # preencha no painel: https://seu-dominio.com.br
+      - key: ADMIN_EMAIL
+        sync: false
+      - key: ADMIN_PASSWORD
+        sync: false        # use só no primeiro acesso; depois troque a senha e APAGUE esta variável
+      - key: ADMIN_NAME
+        value: Administrador
